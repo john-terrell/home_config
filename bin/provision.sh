@@ -5,6 +5,8 @@ sudo apt-get -y install zsh
 sudo apt-get -y install git
 sudo apt-get -y install curl
 
+sudo chsh --shell /usr/bin/zsh johnt
+
 # Setup local .cfg repository to put parts of $HOME under version control
 # from: https://www.atlassian.com/git/tutorials/dotfiles
 if [ ! -d $HOME/.cfg ]; then
@@ -34,4 +36,10 @@ if [ ! -d $HOME/powerlevel10k ]; then
 else
   git -C $HOME/powerlevel10k pull
 fi
+
+# Make sure rustup is run
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Make sure the font cache is updated since .fonts contains the fonts we want.
+fc-cache -f -v
 
