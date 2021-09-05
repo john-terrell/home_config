@@ -1,6 +1,7 @@
 # Debian/Ubuntu Linux provision script
 # Note: this gist is attached to a shortened URL:  http://bit.do/jterrell_config
 # execute with curl -sL http://bit.do/jterrell_config | bash
+sudo apt-get -y install zsh
 sudo apt-get -y install git
 sudo apt-get -y install curl
 
@@ -26,3 +27,11 @@ if [ $? = 0 ]; then
 fi;
 config checkout
 config config status.showUntrackedFiles no
+
+# Make sure Powerlevel10K is installed
+if [ ! -d $HOME/powerlevel10k ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+else
+  git -C $HOME/powerlevel10k pull
+fi
+
