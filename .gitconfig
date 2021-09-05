@@ -1,3 +1,6 @@
 [user]
 	name = John W. Terrell
 	email = john@coolpeoplenetworks.com
+	signingkey = 2E424258DD3731F4
+[commit]
+	gpgsign = true
