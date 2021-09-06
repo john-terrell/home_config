@@ -5,6 +5,13 @@ sudo apt-get -y install zsh
 sudo apt-get -y install git
 sudo apt-get -y install curl
 
+# Pyenv dependencies
+sudo apt-get -y install zlib1g-dev
+sudo apt-get -y install libbz2-dev
+sudo apt-get -y install libreadline-dev
+sudo apt-get -y install libssl-dev
+sudo apt-get -y install libsqlite3-dev
+
 sudo chsh --shell /usr/bin/zsh johnt
 
 # Setup local .cfg repository to put parts of $HOME under version control
