@@ -15,3 +15,6 @@ export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 alias config='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
+
+# Pyenv
+eval "$(pyenv init -)"
