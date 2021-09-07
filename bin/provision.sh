@@ -1,6 +1,8 @@
 # Debian/Ubuntu Linux provision script
 # Note: this gist is attached to a shortened URL:  http://bit.do/jterrell_config
 # execute with curl -sL http://bit.do/jterrell_config | bash
+set -e
+
 sudo apt-get -y install zsh
 sudo apt-get -y install git
 sudo apt-get -y install curl wget
