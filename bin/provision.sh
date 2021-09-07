@@ -30,7 +30,7 @@ apt-get -y install mesa-common-dev
 apt-get -y install ffmpeg libtiff5-dev
 
 # osgEarth dependencies
-apt-get -y install libgdal-dev libglew-dev libzip-dev librocksdb-dev protobuf-compiler
+apt-get -y install gdal-bin libgdal-dev libglew-dev libzip-dev librocksdb-dev protobuf-compiler
 
 
 sudo chsh --shell /usr/bin/zsh $USER
