@@ -3,7 +3,7 @@
 # execute with curl -sL http://bit.do/jterrell_config | bash
 sudo apt-get -y install zsh
 sudo apt-get -y install git
-sudo apt-get -y install curl
+sudo apt-get -y install curl wget
 
 # Pyenv dependencies
 sudo apt-get -y install zlib1g-dev
@@ -11,6 +11,25 @@ sudo apt-get -y install libbz2-dev
 sudo apt-get -y install libreadline-dev
 sudo apt-get -y install libssl-dev
 sudo apt-get -y install libsqlite3-dev
+sudo apt-get -y install make
+sudo apt-get -y install build-essential 
+sudo apt-get -y install libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+# Dev dependencies
+sudo apt-get -y install clang
+
+update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100
+update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++ 100
+
+# OpenGL dependencies
+apt-get -y install mesa-common-dev
+
+# OSG dependencies
+apt-get -y install ffmpeg libtiff5-dev
+
+# osgEarth dependencies
+apt-get -y install libgdal-dev libglew-dev libzip-dev librocksdb-dev protobuf-compiler
+
 
 sudo chsh --shell /usr/bin/zsh $USER
 
@@ -55,4 +74,3 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Make sure the font cache is updated since .fonts contains the fonts we want.
 fc-cache -f -v
-
