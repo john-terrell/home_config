@@ -14,4 +14,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
-alias config='/usr/bin/git --git-dir=/home/johnt/.cfg --work-tree=/home/johnt'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'

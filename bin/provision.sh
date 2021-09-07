@@ -12,7 +12,7 @@ sudo apt-get -y install libreadline-dev
 sudo apt-get -y install libssl-dev
 sudo apt-get -y install libsqlite3-dev
 
-sudo chsh --shell /usr/bin/zsh johnt
+sudo chsh --shell /usr/bin/zsh $USER
 
 # Setup local .cfg repository to put parts of $HOME under version control
 # from: https://www.atlassian.com/git/tutorials/dotfiles
@@ -20,6 +20,12 @@ if [ ! -d $HOME/.cfg ]; then
    git clone --bare https://github.com/john-terrell/home_config.git $HOME/.cfg
 else
    git pull -C $HOME/.cfg
+fi
+
+if [ ! -d $HOME/.pyenv ]; then
+  git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+else
+  git pull -C $HOME/.pyenv
 fi
 
 function config {
