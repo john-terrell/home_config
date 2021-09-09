@@ -3,6 +3,10 @@
 # execute with curl -sL http://bit.do/jterrell_config | bash
 set -e
 
+function config {
+   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+}
+
 sudo apt-get -y install zsh
 sudo apt-get -y install git
 sudo apt-get -y install curl wget
@@ -32,8 +36,8 @@ sudo apt-get -y install ffmpeg libtiff5-dev
 # osgEarth dependencies
 sudo apt-get -y install gdal-bin libgdal-dev libglew-dev libzip-dev librocksdb-dev protobuf-compiler
 
-
-sudo chsh --shell /usr/bin/zsh $USER
+ME=$(whoami)
+sudo chsh --shell /usr/bin/zsh $ME
 
 # Setup local .cfg repository to put parts of $HOME under version control
 # from: https://www.atlassian.com/git/tutorials/dotfiles
@@ -44,10 +48,6 @@ fi
 if [ ! -d "$HOME/.pyenv" ]; then
   git clone https://github.com/pyenv/pyenv.git "$HOME/.pyenv"
 fi
-
-function config {
-   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
-}
 
 mkdir -p .config-backup
 config checkout
