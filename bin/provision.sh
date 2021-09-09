@@ -1,10 +1,11 @@
+#!/usr/bin/bash
 # Debian/Ubuntu Linux provision script
 # Note: this gist is attached to a shortened URL:  http://bit.do/jterrell_config
 # execute with curl -sL http://bit.do/jterrell_config | bash
 set -e
 
 config() {
-   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+   /usr/bin/git --git-dir="$HOME/.cfg/" --work-tree="$HOME" "$@"
 }
 
 sudo apt-get -y install zsh
@@ -37,7 +38,7 @@ sudo apt-get -y install ffmpeg libtiff5-dev
 sudo apt-get -y install gdal-bin libgdal-dev libglew-dev libzip-dev librocksdb-dev protobuf-compiler
 
 ME=$(whoami)
-sudo chsh --shell /usr/bin/zsh $ME
+sudo chsh --shell /usr/bin/zsh "$ME"
 
 # Setup local .cfg repository to put parts of $HOME under version control
 # from: https://www.atlassian.com/git/tutorials/dotfiles
@@ -50,21 +51,20 @@ if [ ! -d "$HOME/.pyenv" ]; then
 fi
 
 mkdir -p .config-backup
-config checkout
-if [ $? = 0 ]; then
+if config checkout; then
   echo "Checked out config.";
   else
     echo "Backing up pre-existing dot files.";
-    config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+    config checkout 2>&1 | grep -E "\s+\." | awk "{'print $1'}" | xargs -I{} mv {} .config-backup/{}
 fi;
 config checkout
 config config status.showUntrackedFiles no
 
 # Make sure Powerlevel10K is installed
-if [ ! -d $HOME/powerlevel10k ]; then
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+if [ ! -d "$HOME/powerlevel10k" ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/powerlevel10k"
 else
-  git -C $HOME/powerlevel10k pull
+  git -C "$HOME/powerlevel10k" pull
 fi
 
 # Make sure rustup is run
