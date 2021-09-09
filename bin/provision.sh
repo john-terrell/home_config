@@ -58,7 +58,7 @@ if config checkout; then
     config checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
 fi;
 onfig fetch --all
-config reset --hard origin/master
+config reset --hard
 config checkout
 config config status.showUntrackedFiles no
 
