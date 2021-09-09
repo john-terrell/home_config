@@ -20,17 +20,17 @@ sudo apt-get -y install libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-
 # Dev dependencies
 sudo apt-get -y install clang
 
-update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100
-update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++ 100
+sudo update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100
+sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++ 100
 
 # OpenGL dependencies
-apt-get -y install mesa-common-dev
+sudo apt-get -y install mesa-common-dev
 
 # OSG dependencies
-apt-get -y install ffmpeg libtiff5-dev
+sudo apt-get -y install ffmpeg libtiff5-dev
 
 # osgEarth dependencies
-apt-get -y install gdal-bin libgdal-dev libglew-dev libzip-dev librocksdb-dev protobuf-compiler
+sudo apt-get -y install gdal-bin libgdal-dev libglew-dev libzip-dev librocksdb-dev protobuf-compiler
 
 
 sudo chsh --shell /usr/bin/zsh $USER
