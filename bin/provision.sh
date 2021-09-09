@@ -37,12 +37,12 @@ sudo chsh --shell /usr/bin/zsh $USER
 
 # Setup local .cfg repository to put parts of $HOME under version control
 # from: https://www.atlassian.com/git/tutorials/dotfiles
-if [ ! -d $HOME/.cfg ]; then
-   git clone --bare https://github.com/john-terrell/home_config.git $HOME/.cfg
+if [ ! -d "$HOME/.cfg" ]; then
+   git clone --bare https://github.com/john-terrell/home_config.git "$HOME/.cfg"
 fi
 
-if [ ! -d $HOME/.pyenv ]; then
-  git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+if [ ! -d "$HOME/.pyenv" ]; then
+  git clone https://github.com/pyenv/pyenv.git "$HOME/.pyenv"
 fi
 
 function config {
