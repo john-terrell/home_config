@@ -3,7 +3,7 @@
 # execute with curl -sL http://bit.do/jterrell_config | bash
 set -e
 
-function config {
+config() {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
 
